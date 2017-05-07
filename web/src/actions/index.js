@@ -2,6 +2,7 @@
  * Created by marycamacho on 5/2/17.
  */
 import { defaultData } from '../data';
+import axios from 'axios';
 
 export const GET_DEFAULT_DATA = 'GET_DEFAULT_DATA';
 export const FETCH_CURRENT_USER = 'FETCH_USER';
@@ -15,7 +16,7 @@ export const FETCH_CURRENT_USER = 'FETCH_USER';
 
     export function fetchUser () {
 
-        const request = $.getJSON('/fetch_current_user').then(function (user) {
+        const request = axios.get('/fetch_current_user').then(function (user) {
             return {
                 user
             };
