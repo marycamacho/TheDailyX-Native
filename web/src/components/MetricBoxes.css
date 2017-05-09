@@ -1,0 +1,7 @@
+.metric-boxes {
+  display: flex; }
+
+.metric-boxes .metric-box {
+  height: 100px;
+  width: 100px;
+  border: thin solid #2f4f4f; }

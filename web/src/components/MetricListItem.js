@@ -4,7 +4,7 @@ import MetricBoxes from "./MetricBoxes";
 export default function({metric}){
     return (
         <div className="metric-container">
-            <div>{metric.name}</div>
+            <h3>{metric.name}</h3>
             <MetricBoxes metric={metric}/>
         </div>
 

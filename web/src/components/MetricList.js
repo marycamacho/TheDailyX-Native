@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { getDefaultData } from '../actions/index';
 import MetricListItem from './MetricListItem';
 
+import './MetricList.css';
+
 class MetricList extends Component {
 
     componentWillMount() {
@@ -11,7 +13,7 @@ class MetricList extends Component {
 
     render() {
         return (
-            <div>
+            <div id="metric-list">
                 { this.renderList() }
             </div>
         );

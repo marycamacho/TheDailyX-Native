@@ -1,0 +1,28 @@
+$defaultListWidth: 800px;
+
+#metric-list {
+  max-width: $defaultListWidth;
+  margin-left: calc(50% - #{$defaultListWidth / 2});
+
+  .metric-container {
+    h3 {
+      text-align: left;
+      font-size: 24px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-weight: 500;
+      line-height: 1.1;
+    }
+
+    .metric-boxes {
+      display: flex;
+      flex-wrap: wrap;
+
+      .metric-box {
+        height: 100px;
+        width: 100px;
+        border: thin solid #2f4f4f;
+      }
+    }
+  }
+}

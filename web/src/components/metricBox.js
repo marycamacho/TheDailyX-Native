@@ -9,7 +9,7 @@ import React from 'react';
 
 export default function() {
     return (
-        <div className="metric-box">Hi</div>
+        <div className="metric-box"></div>
     )
 };
 

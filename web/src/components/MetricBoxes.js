@@ -5,7 +5,7 @@ function renderBoxes(numberToRender) {
     var boxes = [];
     for (var i = 0; i < numberToRender; i++) {
         boxes.push(
-            <MetricBox/>
+            <MetricBox key={i}/>
         )
     }
     return boxes;

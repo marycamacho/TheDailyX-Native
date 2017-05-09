@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../../theme/assets/logo.svg';
 import './App.css';
 import { getDefaultData } from '../actions';
 import MetricList from './MetricList';

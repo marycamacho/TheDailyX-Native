@@ -1,0 +1,20 @@
+#metric-list {
+  max-width: 800px;
+  margin-left: calc(50% - 400px); }
+
+#metric-list .metric-container h3 {
+  text-align: left;
+  font-size: 24px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  line-height: 1.1; }
+
+#metric-list .metric-container .metric-boxes {
+  display: flex;
+  flex-wrap: wrap; }
+
+#metric-list .metric-container .metric-boxes .metric-box {
+  height: 100px;
+  width: 100px;
+  border: thin solid #2f4f4f; }
