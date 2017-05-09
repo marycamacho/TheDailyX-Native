@@ -7,9 +7,10 @@
 
 import React from 'react';
 
-export default function() {
+export default function({boxState}) {
+    var className = `metric-box ${boxState}`;
     return (
-        <div className="metric-box"></div>
+        <div className={className}></div>
     )
 };
 

@@ -22,6 +22,14 @@ $defaultListWidth: 800px;
         height: 100px;
         width: 100px;
         border: thin solid #2f4f4f;
+
+        &.single {
+          background: url(img/single.png) no-repeat center;
+        }
+
+        &.double {
+          background: url(img/double.png) no-repeat center;
+        }
       }
     }
   }

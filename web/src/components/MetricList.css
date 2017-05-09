@@ -18,3 +18,9 @@
   height: 100px;
   width: 100px;
   border: thin solid #2f4f4f; }
+
+#metric-list .metric-container .metric-boxes .metric-box.single {
+  background: url(img/single.png) no-repeat center; }
+
+#metric-list .metric-container .metric-boxes .metric-box.double {
+  background: url(img/double.png) no-repeat center; }

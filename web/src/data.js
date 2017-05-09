@@ -1,62 +1,67 @@
 /**
  * Created by mary on 4/2/2016.
  */
-export function defaultData() {
-    return [
+function defaultData() {
+    return {
+        metrics: [
         {
             name: "Water",
             metricType: "encourage",
-            goal: 8
+            goal: 8,
+            score: 3
         },
         {
             name: "Vitamins",
             metricType: "encourage",
-            goal: 2
+            goal: 2,
+            score: 0
         },
         {
             name: "Calories",
             metricType: "discourage",
-            goal: 12
+            goal: 12,
+            score: 0
         },
         {
             name: "Exercise",
             metricType: "encourage",
-            goal: 5
+            goal: 5,
+            score: 0
         }
-    ]
+    ]}
 }
 
-function getData(){
+export function getData(){
     var dailyDataString = localStorage.getItem('dailyData');
 
     if (dailyDataString) {
-        var data = JSON.parse(dailyDataString);
+        let data = JSON.parse(dailyDataString);
         data.dateStored =  data.dateStored || new Date();
         return data;
     } else {
-        return {
-            dateStored: new Date()
-        };
+        let data = defaultData();
+        data.dateStored = new Date();
+        return data;
     }
 }
 
-function saveData(data){
-    data.dateStored = new Date();
-    if (window.localStorage){
-        var dataString = JSON.stringify(data);
-        console.log(dataString);
-        localStorage.setItem('dailyData',dataString);
-    } else {
-        alert('Local Storage not Supported');
-    }
-}
+// function saveData(data){
+//     data.dateStored = new Date();
+//     if (window.localStorage){
+//         var dataString = JSON.stringify(data);
+//         console.log(dataString);
+//         localStorage.setItem('dailyData',dataString);
+//     } else {
+//         alert('Local Storage not Supported');
+//     }
+// }
 
-function resetData () {
-    var data={
-        dateStored: new Date()
-    };
-    saveData(data);
-    return data;
-}
+// function resetData () {
+//     var data={
+//         dateStored: new Date()
+//     };
+//     saveData(data);
+//     return data;
+// }
 
 

@@ -1,16 +1,16 @@
 /**
  * Created by marycamacho on 5/2/17.
  */
-import { defaultData } from '../data';
+import { getData } from '../data';
 import axios from 'axios';
 
-export const GET_DEFAULT_DATA = 'GET_DEFAULT_DATA';
+export const GET_DATA = 'GET_DATA';
 export const FETCH_CURRENT_USER = 'FETCH_USER';
 
     export function getDefaultData() {
         return {
-            type: GET_DEFAULT_DATA,
-            payload: defaultData()
+            type: GET_DATA,
+            payload: getData()
         };
     }
 
