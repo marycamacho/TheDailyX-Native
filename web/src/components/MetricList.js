@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getDefaultData } from '../actions/index';
 import MetricListItem from './MetricListItem';
+import _ from 'lodash';
 
 import './MetricList.css';
 
@@ -25,8 +26,10 @@ class MetricList extends Component {
             return;
         }
 
-        return metrics.map(m => (
-            <MetricListItem metric={m} key={m.name}/>
+        const orderedMetrics = _.sortBy(metrics, "order");
+        return orderedMetrics
+            .map(m => (
+                <MetricListItem metric={m} key={m.name}/>
         ))
     }
 

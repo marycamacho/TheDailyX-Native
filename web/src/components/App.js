@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import { getDefaultData } from '../actions';
 import MetricList from './MetricList';
 
 class App extends Component {
-
-    componentWillMount () {
-        console.log('componentWillMount',getDefaultData());
-
-    }
-
+    
     render() {
         return (
           <div className="App">

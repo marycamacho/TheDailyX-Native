@@ -1,7 +1,7 @@
 import React from 'react';
 import MetricBox from "./metricBox";
 
-function renderBoxes(numberToRender, score) {
+function renderBoxes(numberToRender, score, metric) {
     var boxes = [];
     //var capacity = numberToRender * 2;
 
@@ -14,20 +14,19 @@ function renderBoxes(numberToRender, score) {
         }
 
         boxes.push(
-            <MetricBox key={i} boxState={boxState}/>
+            <MetricBox key={i} boxState={boxState} metric={metric}/>
         )
     }
     return boxes;
 }
 
 export default function ({metric}) {
-    console.log(metric);
     if (metric.metricType === "encourage") {
         let numberOfBoxes = Math.ceil(metric.goal / 2);
 
         return (
             <div className="metric-boxes encourage">
-                {renderBoxes(numberOfBoxes, metric.score)}
+                {renderBoxes(numberOfBoxes, metric.score, metric)}
             </div>
         )
     } else {
@@ -35,7 +34,7 @@ export default function ({metric}) {
 
         return (
             <div className="metric-boxes discourage">
-                {renderBoxes(numberOfBoxes, metric.score)}
+                {renderBoxes(numberOfBoxes, metric.score, metric)}
             </div>
         );
     }

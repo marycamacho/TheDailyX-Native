@@ -5,13 +5,21 @@
  * and can be removed. We can decide at what level user validation should go later.
  */
 
-import React from 'react';
-
-export default function({boxState}) {
-    var className = `metric-box ${boxState}`;
-    return (
-        <div className={className}></div>
-    )
-};
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { incrementMetricScore } from '../actions';
 
 
+class MetricBox extends Component {
+    render() {
+        const boxState = this.props.boxState;
+        const className = `metric-box ${boxState}`;
+        const metric = this.props.metric;
+
+        return (
+            <div className={className} onClick={this.props.incrementMetricScore.bind(this, metric)}/>
+        )
+    }
+}
+
+export default connect(null, { incrementMetricScore })(MetricBox);

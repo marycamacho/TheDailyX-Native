@@ -8,25 +8,29 @@ function defaultData() {
             name: "Water",
             metricType: "encourage",
             goal: 8,
-            score: 3
+            score: 0,
+            order: 0
         },
         {
             name: "Vitamins",
             metricType: "encourage",
             goal: 2,
-            score: 0
+            score: 0,
+            order: 1
         },
         {
             name: "Calories",
             metricType: "discourage",
             goal: 12,
-            score: 0
+            score: 0,
+            order: 2
         },
         {
             name: "Exercise",
             metricType: "encourage",
             goal: 5,
-            score: 0
+            score: 0,
+            order: 3
         }
     ]}
 }
