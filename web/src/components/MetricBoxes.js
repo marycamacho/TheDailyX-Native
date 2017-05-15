@@ -3,7 +3,6 @@ import MetricBox from "./metricBox";
 
 function renderBoxes(numberToRender, score, metric) {
     var boxes = [];
-    //var capacity = numberToRender * 2;
 
     for (var i = 1; i <= numberToRender; i++) {
         let boxState = "";
@@ -22,7 +21,8 @@ function renderBoxes(numberToRender, score, metric) {
 
 export default function ({metric}) {
     if (metric.metricType === "encourage") {
-        let numberOfBoxes = Math.ceil(metric.goal / 2);
+        let numberOfBoxes = metric.score + 1 > metric.goal ?
+            Math.ceil((metric.score + 1) / 2) : Math.ceil(metric.goal / 2);
 
         return (
             <div className="metric-boxes encourage">
