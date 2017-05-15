@@ -3,7 +3,7 @@ import './App.css';
 import MetricList from './MetricList';
 
 class App extends Component {
-    
+
     render() {
         return (
           <div className="App">

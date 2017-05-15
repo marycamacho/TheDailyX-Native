@@ -1,8 +1,9 @@
 /**
  * Created by marycamacho on 5/2/17.
  */
-import { getData } from '../data';
+import { getData, saveData } from '../data';
 import axios from 'axios';
+import thunk from 'redux-thunk';
 
 export const GET_DATA = 'GET_DATA';
 export const INCREMENT_METRIC_SCORE = 'INCREMENT_METRIC_SCORE';
@@ -16,10 +17,13 @@ export function getDefaultData() {
 }
 
 export function incrementMetricScore(metric) {
-    //console.log("incrementMetricScore", metric);
-    return {
-        type: INCREMENT_METRIC_SCORE,
-        payload: metric
+    return (dispatch, getState) => {
+        dispatch({
+            type: INCREMENT_METRIC_SCORE,
+            payload: metric
+        });
+
+        saveData(getState());
     };
 }
 

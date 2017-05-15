@@ -12,7 +12,6 @@ export default function (state = INITIAL_STATE, action) {
             return action.payload.metrics;
 
         case INCREMENT_METRIC_SCORE:
-            //console.log(action.payload);
             var newMetric = {...action.payload, score: action.payload.score + 1};
             var newState = [...state.filter(m => m.name !== newMetric.name), newMetric];
             console.log(newState);
