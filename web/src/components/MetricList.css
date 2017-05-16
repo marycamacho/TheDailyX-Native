@@ -1,6 +1,5 @@
 #metric-list {
-  max-width: 800px;
-  margin-left: calc(50% - 400px); }
+  max-width: 800px; }
 
 #metric-list .metric-container h3 {
   text-align: left;

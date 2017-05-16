@@ -2,7 +2,6 @@ $defaultListWidth: 800px;
 
 #metric-list {
   max-width: $defaultListWidth;
-  margin-left: calc(50% - #{$defaultListWidth / 2});
 
   .metric-container {
     h3 {
