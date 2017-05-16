@@ -22,6 +22,7 @@ $defaultListWidth: 800px;
         height: 100px;
         width: 100px;
         border: thin solid #2f4f4f;
+        box-sizing: border-box;
 
         &.single {
           background: url(img/single.png) no-repeat center;
