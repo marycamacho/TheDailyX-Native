@@ -12,9 +12,8 @@ import { incrementMetricScore } from '../actions';
 
 class MetricBox extends Component {
     render() {
-        const boxState = this.props.boxState;
-        const className = `metric-box ${boxState}`;
-        const metric = this.props.metric;
+        const { boxState, metric, aboveGoal } = this.props;
+        const className = `metric-box ${boxState} ${aboveGoal ? "above" : ""}`;
 
         return (
             <div className={className} onClick={this.props.incrementMetricScore.bind(this, metric)}/>

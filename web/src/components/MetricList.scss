@@ -31,6 +31,18 @@ $defaultListWidth: 800px;
           background: url(img/double.png) no-repeat center;
         }
       }
+
+      &.encourage {
+        .metric-box.above {
+          border: green solid 4px;
+        }
+      }
+
+      &.discourage {
+        .metric-box.above {
+          border: red solid 4px;
+        }
+      }
     }
   }
 }
