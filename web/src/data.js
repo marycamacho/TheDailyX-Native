@@ -40,13 +40,24 @@ export function getData(){
 
     if (dailyDataString) {
         let data = JSON.parse(dailyDataString);
-        data.dateStored =  data.dateStored || new Date();
+        data.dateStored =  new Date(data.dateStored  || "");
         return data;
     } else {
         let data = defaultData();
         data.dateStored = new Date();
         return data;
     }
+}
+
+export function getTodaysData() {
+    var data = getData();
+    var todaysDate = new Date();
+    todaysDate.setHours(0, 0, 0, 0);
+    if (data.dateStored > todaysDate) {
+        return data;
+    }
+
+    return defaultData();
 }
 
 export function saveData(data){
