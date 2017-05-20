@@ -32,15 +32,16 @@ $defaultListWidth: 800px;
         }
       }
 
-      &.encourage {
-        .metric-box.above {
-          border: green solid 4px;
-        }
-      }
+      //&.encourage {
+      //  .metric-box.above {
+      //    border: green solid 4px;
+      //  }
+      //}
 
       &.discourage {
         .metric-box.above {
-          border: red solid 4px;
+          border-color: red;
+          background-color: lighten(#ff3333, 30%);
         }
       }
     }
