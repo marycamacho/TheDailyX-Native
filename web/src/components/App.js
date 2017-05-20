@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import MetricList from './MetricList';
+import AppControls from './AppControls';
 
 class App extends Component {
 
@@ -8,7 +9,8 @@ class App extends Component {
         return (
           <div className="App">
             <div className="App-header">
-              <h2>The Daily X</h2>
+                <h2>The Daily X</h2>
+                <AppControls/>
             </div>
             <MetricList/>
           </div>

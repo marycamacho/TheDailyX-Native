@@ -1,6 +1,9 @@
 /**
  * Created by mary on 4/2/2016.
  */
+
+const DATA_STORAGE_KEY = 'dailyData';
+
 function defaultData() {
     return {
         metrics: [
@@ -36,7 +39,7 @@ function defaultData() {
 }
 
 export function getData(){
-    var dailyDataString = localStorage.getItem('dailyData');
+    var dailyDataString = localStorage.getItem(DATA_STORAGE_KEY);
 
     if (dailyDataString) {
         let data = JSON.parse(dailyDataString);
@@ -65,18 +68,20 @@ export function saveData(data){
     if (window.localStorage){
         var dataString = JSON.stringify(data);
         console.log(dataString);
-        localStorage.setItem('dailyData',dataString);
+        localStorage.setItem(DATA_STORAGE_KEY, dataString);
     } else {
         alert('Local Storage not Supported');
     }
 }
 
-// function resetData () {
-//     var data={
-//         dateStored: new Date()
-//     };
-//     saveData(data);
-//     return data;
-// }
+export function resetData() {
+    if (window.localStorage) {
+        localStorage.removeItem(DATA_STORAGE_KEY);
+    }
+
+    var data=defaultData();
+    saveData(data);
+    return data;
+}
 
 
