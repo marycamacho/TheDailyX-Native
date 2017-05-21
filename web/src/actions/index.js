@@ -7,6 +7,7 @@ import axios from 'axios';
 export const GET_DATA = 'GET_DATA';
 export const RESET = 'RESET';
 export const INCREMENT_METRIC_SCORE = 'INCREMENT_METRIC_SCORE';
+export const DECREMENT_METRIC_SCORE = 'DECREMENT_METRIC_SCORE';
 export const FETCH_CURRENT_USER = 'FETCH_USER';
 
 export function getDefaultData() {
@@ -20,6 +21,17 @@ export function incrementMetricScore(metric) {
     return (dispatch, getState) => {
         dispatch({
             type: INCREMENT_METRIC_SCORE,
+            payload: metric
+        });
+
+        saveData(getState());
+    };
+}
+
+export function decrementMetricScore(metric) {
+    return (dispatch, getState) => {
+        dispatch({
+            type: DECREMENT_METRIC_SCORE,
             payload: metric
         });
 

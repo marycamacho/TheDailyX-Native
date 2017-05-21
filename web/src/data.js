@@ -67,7 +67,6 @@ export function saveData(data){
     data.dateStored = new Date();
     if (window.localStorage){
         var dataString = JSON.stringify(data);
-        console.log(dataString);
         localStorage.setItem(DATA_STORAGE_KEY, dataString);
     } else {
         alert('Local Storage not Supported');

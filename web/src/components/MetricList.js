@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getDefaultData } from '../actions/index';
+import { getDefaultData, decrementMetricScore } from '../actions/index';
 import MetricListItem from './MetricListItem';
 import _ from 'lodash';
 
@@ -28,9 +28,12 @@ class MetricList extends Component {
 
         const orderedMetrics = _.sortBy(metrics, "order");
         return orderedMetrics
-            .map(m => (
-                <MetricListItem metric={m} key={m.name}/>
-        ))
+            .map(m => {
+                const decrementHandler = () => this.props.decrementMetricScore(m);
+                return (
+                    <MetricListItem metric={m} key={m.name} onDecrement={decrementHandler}/>
+                )
+        });
     }
 
 }
@@ -41,5 +44,5 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps, { getDefaultData })(MetricList);
+export default connect(mapStateToProps, { getDefaultData, decrementMetricScore })(MetricList);
 

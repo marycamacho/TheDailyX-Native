@@ -9,22 +9,28 @@
   font-weight: 500;
   line-height: 1.1; }
 
-#metric-list .metric-container .metric-boxes {
+#metric-list .metric-container .boxes-and-controls {
+  display: flex; }
+
+#metric-list .metric-container .boxes-and-controls .metric-boxes {
   display: flex;
   flex-wrap: wrap; }
 
-#metric-list .metric-container .metric-boxes .metric-box {
+#metric-list .metric-container .boxes-and-controls .metric-boxes .metric-box {
   height: 100px;
   width: 100px;
   border: thin solid #2f4f4f;
   box-sizing: border-box; }
 
-#metric-list .metric-container .metric-boxes .metric-box.single {
+#metric-list .metric-container .boxes-and-controls .metric-boxes .metric-box.single {
   background: url(img/single.png) no-repeat center; }
 
-#metric-list .metric-container .metric-boxes .metric-box.double {
+#metric-list .metric-container .boxes-and-controls .metric-boxes .metric-box.double {
   background: url(img/double.png) no-repeat center; }
 
-#metric-list .metric-container .metric-boxes.discourage .metric-box.above {
+#metric-list .metric-container .boxes-and-controls .metric-boxes.discourage .metric-box.above {
   border-color: red;
   background-color: #ffcccc; }
+
+#metric-list .metric-container .boxes-and-controls .decrement-metric {
+  margin-left: 20px; }

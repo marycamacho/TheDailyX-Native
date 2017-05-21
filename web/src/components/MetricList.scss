@@ -13,37 +13,46 @@ $defaultListWidth: 800px;
       line-height: 1.1;
     }
 
-    .metric-boxes {
+    .boxes-and-controls {
       display: flex;
-      flex-wrap: wrap;
 
-      .metric-box {
-        height: 100px;
-        width: 100px;
-        border: thin solid #2f4f4f;
-        box-sizing: border-box;
+      .metric-boxes {
+        display: flex;
+        flex-wrap: wrap;
 
-        &.single {
-          background: url(img/single.png) no-repeat center;
+        .metric-box {
+          height: 100px;
+          width: 100px;
+          border: thin solid #2f4f4f;
+          box-sizing: border-box;
+
+          &.single {
+            background: url(img/single.png) no-repeat center;
+          }
+
+          &.double {
+            background: url(img/double.png) no-repeat center;
+          }
         }
 
-        &.double {
-          background: url(img/double.png) no-repeat center;
+        //&.encourage {
+        //  .metric-box.above {
+        //    border: green solid 4px;
+        //  }
+        //}
+
+        &.discourage {
+          .metric-box.above {
+            border-color: red;
+            background-color: lighten(#ff3333, 30%);
+          }
         }
       }
 
-      //&.encourage {
-      //  .metric-box.above {
-      //    border: green solid 4px;
-      //  }
-      //}
-
-      &.discourage {
-        .metric-box.above {
-          border-color: red;
-          background-color: lighten(#ff3333, 30%);
-        }
+      .decrement-metric {
+        margin-left: 20px;
       }
     }
+
   }
 }
