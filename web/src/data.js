@@ -4,10 +4,11 @@
 
 const DATA_STORAGE_KEY = 'dailyData';
 
-function defaultData() {
+function defaultMetrics() {
     return {
         metrics: [
         {
+            id: "water",
             name: "Water",
             metricType: "encourage",
             goal: 8,
@@ -15,6 +16,7 @@ function defaultData() {
             order: 0
         },
         {
+            id: "vitamins",
             name: "Vitamins",
             metricType: "encourage",
             goal: 2,
@@ -22,6 +24,7 @@ function defaultData() {
             order: 1
         },
         {
+            id: "calories",
             name: "Calories",
             metricType: "discourage",
             goal: 12,
@@ -29,6 +32,7 @@ function defaultData() {
             order: 2
         },
         {
+            id: "exercise",
             name: "Exercise",
             metricType: "encourage",
             goal: 5,
@@ -38,7 +42,7 @@ function defaultData() {
     ]}
 }
 
-export function getData(){
+function getData(){
     var dailyDataString = localStorage.getItem(DATA_STORAGE_KEY);
 
     if (dailyDataString) {
@@ -46,7 +50,7 @@ export function getData(){
         data.dateStored =  new Date(data.dateStored  || "");
         return data;
     } else {
-        let data = defaultData();
+        let data = defaultMetrics();
         data.dateStored = new Date();
         return data;
     }
@@ -54,17 +58,23 @@ export function getData(){
 
 export function getTodaysData() {
     var data = getData();
+
     var todaysDate = new Date();
     todaysDate.setHours(0, 0, 0, 0);
     if (data.dateStored > todaysDate) {
         return data;
     }
 
-    return defaultData();
+    return defaultMetrics();
 }
 
-export function saveData(data){
-    data.dateStored = new Date();
+export function saveData(applicationState){
+    var data = {
+        metrics: applicationState.metrics,
+        scores: applicationState.scores || [],
+        dateStored: new Date()
+    };
+
     if (window.localStorage){
         var dataString = JSON.stringify(data);
         localStorage.setItem(DATA_STORAGE_KEY, dataString);
@@ -73,14 +83,19 @@ export function saveData(data){
     }
 }
 
+/**
+ * Used to zero out the days scores
+ */
+export function resetScoresForDay() {
+
+}
+
 export function resetData() {
     if (window.localStorage) {
         localStorage.removeItem(DATA_STORAGE_KEY);
     }
 
-    var data=defaultData();
+    var data=defaultMetrics();
     saveData(data);
     return data;
 }
-
-

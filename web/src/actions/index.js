@@ -3,12 +3,7 @@
  */
 import { getTodaysData, saveData, resetData } from '../data';
 import axios from 'axios';
-
-export const GET_DATA = 'GET_DATA';
-export const RESET = 'RESET';
-export const INCREMENT_METRIC_SCORE = 'INCREMENT_METRIC_SCORE';
-export const DECREMENT_METRIC_SCORE = 'DECREMENT_METRIC_SCORE';
-export const FETCH_CURRENT_USER = 'FETCH_USER';
+import { GET_DATA, DECREMENT_METRIC_SCORE, INCREMENT_METRIC_SCORE, RESET, FETCH_CURRENT_USER } from './action_constants';
 
 export function getDefaultData() {
     return {

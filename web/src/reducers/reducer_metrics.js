@@ -2,7 +2,7 @@
  * Created by marycamacho on 5/2/17.
  */
 
-import { GET_DATA, INCREMENT_METRIC_SCORE, DECREMENT_METRIC_SCORE, RESET } from '../actions';
+import { GET_DATA, INCREMENT_METRIC_SCORE, DECREMENT_METRIC_SCORE, RESET } from '../actions/action_constants';
 
 const INITIAL_STATE = [];
 
