@@ -56,27 +56,52 @@ function getData(){
     }
 }
 
+/**
+ * @returns {Date} The first instant of the current day. Useful to determine if a date
+ * is older than the current day
+ */
+function todaysDateStart() {
+    var todaysDate = new Date();
+    todaysDate.setHours(0, 0, 0, 0);
+    return todaysDate;
+}
+
 export function getTodaysData() {
     var data = getData();
 
-    var todaysDate = new Date();
-    todaysDate.setHours(0, 0, 0, 0);
-    if (data.dateStored > todaysDate) {
+    //If the data was last stored today then return it
+    if (data.dateStored > todaysDateStart()) {
         return data;
     }
 
-    return defaultMetrics();
+    //Otherwise move the scores to historical storage and reset the current score
+    data = updateHistoricalScores(data);
+    data = resetScoresForToday(data);
+    return data;
+}
+
+function updateHistoricalScores(currentData) {
+
+    var historicalScores = { date: currentData.dateStored }
+    currentData.metrics.forEach(m => {
+        historicalScores[m.id] = m.score
+    })
+
+    currentData.scores.push(historicalScores);
+
+    return currentData;
 }
 
 export function saveData(applicationState){
-    var data = {
+    var currentStoredData = getTodaysData()
+    var newDataToStore = {
         metrics: applicationState.metrics,
-        scores: applicationState.scores || [],
+        scores: currentStoredData.scores || [],
         dateStored: new Date()
     };
 
     if (window.localStorage){
-        var dataString = JSON.stringify(data);
+        var dataString = JSON.stringify(newDataToStore);
         localStorage.setItem(DATA_STORAGE_KEY, dataString);
     } else {
         alert('Local Storage not Supported');
@@ -86,8 +111,14 @@ export function saveData(applicationState){
 /**
  * Used to zero out the days scores
  */
-export function resetScoresForDay() {
-
+export function resetScoresForToday(currentData) {
+    console.log(currentData);
+    return {
+        ...currentData,
+        metrics: currentData.metrics.map(m => {
+            return { ...m, score: 0 }
+        })
+    };
 }
 
 export function resetData() {
