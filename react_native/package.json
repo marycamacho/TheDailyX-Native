@@ -1,0 +1,28 @@
+{
+  "name": "DailyX",
+  "version": "0.0.1",
+  "author": "Mary Camacho",
+  "license": "Copyright 2017, JoyaSolutions",
+  "private": true,
+  "main": "main.js",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "expo": "^24.0.0",
+    "latlng-to-zip": "0.0.1",
+    "lodash": "https://registry.npmjs.org/lodash/-/lodash-4.17.4.tgz",
+    "moment": "^2.20.1",
+    "native-base": "^2.3.5",
+    "qs": "https://registry.npmjs.org/qs/-/qs-6.5.1.tgz",
+    "react": "16.0.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-24.0.0.tar.gz",
+    "react-native-elements": "^0.18.5",
+    "react-navigation": "^1.0.0-beta.22",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^5.4.0",
+    "redux-persist-migrate": "^5.0.0",
+    "redux-thunk": "^2.2.0",
+    "shrinkwrap": "^0.4.0"
+  }
+}

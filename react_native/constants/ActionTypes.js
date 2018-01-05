@@ -1,0 +1,3 @@
+export const USER_LOGOUT = 'USER_LOGOUT'
+export const UPDATE_USER_DATA = 'UPDATE_USER_DATA'
+export const UPDATE_APP_DATA = 'UPDATE_APP_DATA'
