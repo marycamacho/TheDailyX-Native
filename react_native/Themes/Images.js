@@ -1,4 +1,5 @@
-// leave off @2x/@3x
-const images = {};
+const images = {
+    logo: require('../assets/img/dailyx.png'),
+};
 
 export default images;

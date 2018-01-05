@@ -29,7 +29,10 @@ export default  StyleSheet.create({
         borderRadius: 5,
         height: 40
     },
-
+    headerLogo : {
+        width: 210,
+        height: 80
+    },
     mainButtonText: {
         color: '#fff',
         fontSize: 16,

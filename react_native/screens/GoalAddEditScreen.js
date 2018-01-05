@@ -28,7 +28,7 @@ import {validateEmail} from '../util/Utils'
 //import config from "./../../config";
 
 
-class GoalEntryScreen extends Component {
+class GoalAddEditScreen  extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -42,15 +42,20 @@ class GoalEntryScreen extends Component {
     }
 
 
+    goToNextScreen() {
+        console.log('in go to next screen');
+        var self = this;
+        self.setState({pending: true});
+    }
     goToNextScreen(nextScreen) {
-         this.props.navigation.navigate(nextScreen);
+        this.props.navigation.navigate(nextScreen);
     }
-    logoutUser(){
-        this.props.userLogout()
-        setTimeout(()=>{
-            this.props.navigation.navigate('auth');
-        },1000)
-    }
+logoutUser(){
+    this.props.userLogout()
+    setTimeout(()=>{
+        this.props.navigation.navigate('auth');
+    },1000)
+}
     render() {
         console.log('this state1', this.state );
         return (
@@ -59,13 +64,13 @@ class GoalEntryScreen extends Component {
                     <StatusBar  />
                     <Header style={StyleSheet.flatten([{ justifyContent: 'space-between', marginTop:0, paddingBottom:10,borderBottomWidth:1, borderBottomColor:Colors.gray }])}  >
                         <Left   style={{ flex:1}}>
-                            <Image
-                                source={Images.logo}
-                                resizeMode={Image.resizeMode.contain}
-                                style={StyleSheet.flatten([GlobStyle.headerLogo])}/>
+
                         </Left>
                         <Body style={{alignItems:'center'}}>
-
+                        <Image
+                            source={Images.logo}
+                            resizeMode={Image.resizeMode.contain}
+                            style={StyleSheet.flatten([GlobStyle.headerLogo])}/>
                         </Body>
                         <Right style=  {{flex:1 }}>
                             <NBButton style={{width: 47, position:'relative', top:-3, marginRight: 0, paddingRight: 0}} transparent
@@ -95,7 +100,7 @@ class GoalEntryScreen extends Component {
                             <View style={{alignItems: 'stretch', flexDirection: 'column'}}>
                                 <View style={StyleSheet.flatten([{
                                     justifyContent: 'flex-start',
-                                    paddingVertical: 15,
+                                     paddingVertical: 15,
                                     backgroundColor:Colors.lightGreen,
                                     borderWidth:0,
                                     flex: 1,
@@ -105,12 +110,12 @@ class GoalEntryScreen extends Component {
                                         onPress={() =>this.goToNextScreen('goalAddEdit')}>
                                         <View style={{flexDirection: 'row', paddingLeft: 10}}>
                                             <Text style={{
-                                                color:Colors.white,
+                                                 color:Colors.white,
                                                 marginRight: 10,
                                                 fontSize: 16
                                             }}
                                                   allowFontScaling={false}>
-                                                Add or Edit Goals</Text>
+                                               Enter Daily Xs</Text>
                                         </View>
                                     </TouchableOpacity>
                                 </View>
@@ -119,7 +124,7 @@ class GoalEntryScreen extends Component {
                                     flex: 1,
                                     flexDirection: 'column',
                                     backgroundColor:Colors.orange,
-                                    paddingVertical: 15,
+                                     paddingVertical: 15,
                                     borderWidth: 0,
                                 }])}>
                                     <TouchableOpacity
@@ -220,4 +225,4 @@ function mapDispatchToProps(dispatch) {
         makeRequest,userLogout,
     }, dispatch);
 }
-export default connect(mapStateToProps, mapDispatchToProps)(GoalEntryScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(GoalAddEditScreen);

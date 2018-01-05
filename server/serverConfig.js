@@ -24,7 +24,7 @@ module.exports = {
         },
         local: {
             mongo: {
-                 connection: '',
+                 connection: ' ',
             },
         }
     },

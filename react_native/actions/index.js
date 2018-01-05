@@ -11,7 +11,14 @@ axios.defaults.baseURL = config.getEnvironment().serverBaseURL;
 console.log('environment', config.getEnvironment().serverBaseURL);
 console.log('config.getEnvironment().serverBaseURL', config.getEnvironment());
 
-
+export function userLogout() {
+    return (dispatch) => {
+        dispatch({
+            type: USER_LOGOUT,
+            data: {}
+        });
+    }
+}
 export function dispatchAction(payload, actionName) {
     return (dispatch, getState) => {
         dispatch({

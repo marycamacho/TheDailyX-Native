@@ -8,8 +8,7 @@ import { PersistGate } from 'redux-persist/es/integration/react'
 import configureStore from './store';
 const { store, persistor } = configureStore()
  // persistor.purge(['userReducer']);
-import AuthScreen from './screens/AuthScreen';
-import GoalEntryScreen from './screens/GoalEntryScreen';
+import {AuthScreen,GoalEntryScreen, GoalAddEditScreen} from './screens';
 
 
 class App extends React.Component {
@@ -18,20 +17,24 @@ class App extends React.Component {
     }
 
     render() {
-        const MainNavigator = TabNavigator({
+        const MainNavigator = StackNavigator({
              auth: {screen: AuthScreen},
-            main: {
-                screen: TabNavigator({
-                    goalEntry: {screen: GoalEntryScreen},
-
-                }, {
-                    tabBarPosition: 'bottom',
-                    tabBarOptions: {
-                        labelStyle: {fontSize: 12}
-                    }
-                })
-            }
+            goalEntry: {screen: GoalEntryScreen},
+            goalAddEdit: {screen: GoalAddEditScreen},
+            // main: {
+            // screen: TabNavigator({
+            //     goalEntry: {screen: GoalEntryScreen},
+            //     goalAddEdit: {screen: GoalAddEditScreen},
+            // }, {
+            //     //  tabBarPosition: 'bottom',
+            //     tabBarOptions: {
+            //         labelStyle: {fontSize: 12}
+            //     }
+            // })
         }, {
+
+            headerMode: 'none',
+            mode: 'modal',
             navigationOptions: {
                 tabBarVisible: false,
             },
