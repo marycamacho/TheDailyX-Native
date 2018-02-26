@@ -24,7 +24,7 @@ module.exports = {
         },
         local: {
             mongo: {
-                 connection: ' ',
+                 connection: 'mongodb://dailyx:JTS0lutions!@ds046267.mlab.com:46267/thedailyx-dev-test'
             },
         }
     },

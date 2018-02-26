@@ -23,8 +23,30 @@ export default  StyleSheet.create({
         alignSelf: 'center',
         alignItems: 'center'
     },
+    radioBtnOuterCircle: {
+        width: 17,
+        height: 17,
+        borderRadius: 100 / 2,
+        borderColor:Colors.white,
+         borderWidth: 1,
+        justifyContent:'center',
+    },
+    radioBtnInnerCircle: {
+        width: 9,
+        height: 9,
+        borderRadius: 100 / 2,
+         borderWidth: 0
+    },
+    buttonWithShadow:{
+        borderWidth:1,
+        borderColor:Colors.darkGray,
+        shadowColor: Colors.darkGray,
+        shadowOffset: { width: 2, height: 2 },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+    },
     mainButton: {
-        //  backgroundColor: Colors.lightGreen,
+      backgroundColor: Colors.cyen,
         alignItems: 'center',
         borderRadius: 5,
         height: 40
@@ -34,7 +56,6 @@ export default  StyleSheet.create({
         height: 80
     },
     mainButtonText: {
-        color: '#fff',
         fontSize: 16,
         lineHeight: 16,
         marginTop: 3,

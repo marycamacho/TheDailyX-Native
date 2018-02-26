@@ -31,6 +31,7 @@
     var tokenRoutes = []
     var tokenRoutesRegex = [
          {'route': /^\/users.*$/, method: 'ALL'},
+        {'route': /^\/goals.*$/, method: 'ALL'},
     ];
 
     var include = function (restrictedPaths, restrictedPathsRegex, middleware) {
@@ -147,6 +148,33 @@
         });
 
         // // // // // // // // // // // USERS // // // // // // // // // // // //
+
+        // // // // // // // // // // // GOALS // // // // // // // // // // // //
+        app.post('/goals', function (req, res, next) {
+
+            require('./server/api/goals/create')()(req, res).then(function (response) {
+                return res.send(response);
+            }).catch(function (error) {
+                return next(error);
+            });
+        });
+        app.patch('/goals', function (req, res, next) {
+
+            require('./server/api/goals/update')()(req, res).then(function (response) {
+                return res.send(response);
+            }).catch(function (error) {
+                return next(error);
+            });
+        });
+        app.get('/goals', function (req, res, next) {
+
+            require('./server/api/goals/get')()(req, res).then(function (response) {
+                return res.send(response);
+            }).catch(function (error) {
+                return next(error);
+            });
+        });
+        // // // // // // // // // // // GOALS // // // // // // // // // // // //
 
         /* handleerror*/
         app.use(function (err, req, res, next) {

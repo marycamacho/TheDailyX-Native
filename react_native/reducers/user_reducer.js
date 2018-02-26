@@ -14,7 +14,7 @@ export default function userReducer(state = initialState, action) {
     switch (action.type) {
 
         case REHYDRATE: /* this is required to populate reducer state from data saved in persisted store */
-           console.log('action payload', action );
+           console.log('action payload REHYDRATE', action );
             if (!_.isUndefined(action.payload) && !_.isUndefined(action.payload.userReducer)) {
                 return action.payload.userReducer
             } else {

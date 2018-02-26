@@ -28,7 +28,7 @@ var userSchema = new User({
         }, 'Please fill in your email'],
          match: [/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 'Please fill a valid email address']
     },
-    jwtTokenHash: { /* included in jwt tokens and changed on password reset to invalidate other tokens */
+    jwtTokenHash: { /* included in jwt tokens and can be changed to invalidate other tokens */
         type: String,
         select: false,
         default:''

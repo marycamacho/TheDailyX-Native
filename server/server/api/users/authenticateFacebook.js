@@ -29,7 +29,6 @@ module.exports = function (methodName) {
                 if (err)  return next(err);
 
                 if (!user) { /* if user is not found, create one*/
-                    req.body.Email = 'lingvoplanet@yandex.ua'
                     if (req.body.Email) {
                         req.body.Email = req.body.Email.trim()
                         profile.email = req.body.Email;

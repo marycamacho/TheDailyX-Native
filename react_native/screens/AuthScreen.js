@@ -90,6 +90,11 @@ class AuthScreen extends Component {
             permissions: ['public_profile', 'email'], // behavior:'browser' / * should be used in standalone app */
         }).then(function (response) {
             console.log('Login success', response)
+
+            if (response.type !== 'success'){
+                self.setState({pending: false});
+                return;
+            }
             self.signIn({
                 type: 'Facebook',
                 accessToken: response.token
@@ -112,7 +117,7 @@ class AuthScreen extends Component {
         self.props.makeRequest(params, methodData).then(function (response) {
             console.log('response.data.User._id', response.data.User._id);
             setTimeout(function () {
-                self.props.navigation.navigate('goalEntry');
+                self.props.navigation.navigate('goalList');
             },1000)
 
 
@@ -147,14 +152,14 @@ class AuthScreen extends Component {
                                 <Text style={{
                                     fontSize: 17,
                                     textAlign: 'center',
-                                    color: Colors.green
+                                    color: Colors.cyen
                                 }}>The simplest and most easy to use goal-setting app available</Text>
                             </View>
 
                             <View style={{
                                 flex: 35,
                                 width: '100%',
-                                backgroundColor: Colors.green,
+                                backgroundColor: Colors.cyen,
                             }}>
                                 <View
                                     style={StyleSheet.flatten([GlobStyle.center, {
@@ -173,7 +178,7 @@ class AuthScreen extends Component {
                                 <View style={{
                                     justifyContent: 'space-around',
                                     flexDirection: 'row',
-                                    backgroundColor: Colors.green,
+                                    backgroundColor: Colors.cyen,
                                     marginTop: 10
                                 }}>
                                     <TouchableOpacity
@@ -185,7 +190,7 @@ class AuthScreen extends Component {
                                             borderRadius: 10
                                         }, this.state.pending ? {backgroundColor: Colors.grayedOut} : {}])}
                                         onPress={() => this.loginWithGoogle()}><EvilIcons
-                                        style={{color: Colors.green, marginRight: 15, fontSize: 90}}
+                                        style={{color: Colors.cyen, marginRight: 15, fontSize: 90}}
                                         name="sc-google-plus"/>
                                     </TouchableOpacity>
                                     <TouchableOpacity
@@ -200,7 +205,7 @@ class AuthScreen extends Component {
                                             justifyContent: 'flex-end'
                                         }, this.state.pending ? {backgroundColor: Colors.grayedOut} : {}])}
                                         onPress={() => this.loginWithFacebook()}><FontAwesome style={{
-                                        color: Colors.green,
+                                        color: Colors.cyen,
                                         marginRight: 15,
                                         position: 'relative',
                                         top: 7,

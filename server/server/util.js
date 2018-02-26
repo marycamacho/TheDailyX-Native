@@ -15,6 +15,13 @@ const data = {
         var hexReplaced = hex.replace(/-/g, '');
         return new Buffer(hexReplaced, 'hex').toString('base64');
     },
+    permissionsCheck : function(allowedRoles, decoded = {})  {
+        if (_.isUndefined(decoded.Roles)){
+            return false;
+        } else{
+            return _.size(_.intersection(allowedRoles, decoded.Roles)) > 0;
+        }
+    },
     removePrefix(string, prefix){
         string = _.trim(string)
         return string.startsWith(prefix) ? string.slice(prefix.length) : string
