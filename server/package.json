@@ -25,7 +25,8 @@
     "mongoose-uuid2": "^2.0.1",
     "node-uuid": "^1.4.8",
     "nodemailer": "^4.4.1",
-    "q": "^1.5.1"
+    "q": "^1.5.1",
+    "randomstring": "^1.1.5"
   },
   "optionalDependencies": {
     "fsevents": "*"
