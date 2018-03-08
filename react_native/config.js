@@ -13,6 +13,10 @@ export default {
         development: {},
         local: {
             serverBaseURL:'http://localhost:3039',
+            Google:{
+                IOSClientID:'832491737441-cntvclomlc89g1gitdj66b13t3phumvt.apps.googleusercontent.com', //'832491737441-n70cpo99ar3tfuqql4v5so2i26e70gvv.apps.googleusercontent.com',
+                AndroidClientID:'105748075970-tbkdbgjllfsh784njm8ipkhqi82pjfd8.apps.googleusercontent.com'
+            },
         },
     },
 
@@ -36,10 +40,7 @@ export default {
     Facebook:{
          ClientID:'1906493539664651'//'271856386671563'
     },
-    Google:{
-        IOSClientID:'105748075970-lgq2g2ulucd8dv7fs914ep08dlmo8er1.apps.googleusercontent.com', //'832491737441-n70cpo99ar3tfuqql4v5so2i26e70gvv.apps.googleusercontent.com',
-        AndroidClientID:'105748075970-tbkdbgjllfsh784njm8ipkhqi82pjfd8.apps.googleusercontent.com'
-    },
+
     deviceMap:[
         {width:375, height:667, orientation:'portrait', type:'iphone',  version:'iphone6', screensize:2,  title:'iphone6_portrait'},/*  iPhone 6s, iPhone 7 */
         {width:667,height:375, orientation:'landscape',type:'iphone', version:'iphone6', screensize:2, title:'iphone6_landscape'},

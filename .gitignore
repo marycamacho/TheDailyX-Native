@@ -53,3 +53,7 @@ buck-out/
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
+
+/* files created for detached react-native project*/
+react_native/android/*
+react_native/ios/*

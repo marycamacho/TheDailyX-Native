@@ -60,7 +60,8 @@ class AuthScreen extends Component {
 
         Expo.Google.logInAsync({
             androidClientId: '',
-            iosClientId: config.Google.IOSClientID,
+            iosClientId: config.getEnvironment().Google.IOSClientID,
+            iosStandaloneAppClientId:config.getEnvironment().Google.IOSClientID,
             scopes: ['profile', 'email'],
         }).then(function (response) {
             console.log('response', response );
